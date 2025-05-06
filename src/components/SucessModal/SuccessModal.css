@@ -1,0 +1,15 @@
+.modal__content {
+  padding: 43px 36px 51px;
+}
+.modal__title {
+  margin-bottom: 0;
+}
+
+.modal__button-secondary {
+  margin-top: 14px;
+  align-self: flex-start;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+}

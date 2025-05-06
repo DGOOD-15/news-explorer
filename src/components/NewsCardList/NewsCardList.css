@@ -1,0 +1,39 @@
+.newsCardList__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 104px;
+  background-color: #f5f6f7;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.newsCardList__title {
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  align-self: flex-start;
+}
+
+.newsCardList__list {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 16px;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.newsCardList__show-more-btn {
+  width: 288px;
+  height: 64px;
+  border-radius: 80px;
+  border: none;
+  background-color: #ffffff;
+}
