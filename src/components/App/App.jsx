@@ -187,6 +187,7 @@ function App() {
           handleSignInClick={handleSignInClick}
           currentUser={currentUser}
           handleLogout={handleLogout}
+          isModalOpen={activeModal !== ""}
         />
       ) : (
         <Header
@@ -195,6 +196,7 @@ function App() {
           handleLogout={handleLogout}
           onSearchResults={handleSearch}
           isLoggedIn={isLoggedIn}
+          isModalOpen={activeModal !== ""}
         />
       )}
       <Routes>

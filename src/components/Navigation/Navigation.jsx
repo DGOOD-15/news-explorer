@@ -8,6 +8,7 @@ function Navigation({
   isLoggedIn,
   handleLogout,
   currentUser,
+  isModalOpen,
 }) {
   const location = useLocation();
   const currentPath = location.pathname;
@@ -35,7 +36,9 @@ function Navigation({
         <button
           className={`navigation__menu-button ${
             isMobileMenuOpen ? "navigation__menu-close-btn" : ""
-          } ${isSavedArticlesPage ? "navigation__menu-button-saved" : ""}`}
+          } ${isSavedArticlesPage ? "navigation__menu-button-saved" : ""} ${
+            isModalOpen ? "navigation__menu-button-hidden" : ""
+          }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         ></button>
 

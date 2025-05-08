@@ -55,6 +55,8 @@
   font-size: 14px;
   line-height: 100%;
   outline: none;
+  margin-top: 9px;
+  padding: 0 0 10px;
 }
 
 .modal__title {
@@ -62,7 +64,7 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 100%;
-  letter-spacing: 0%;
+  margin: 0 0 22px;
 }
 
 .modal__label {
@@ -72,6 +74,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
+  height: 47px;
 }
 
 .modal__submit {
@@ -89,6 +92,7 @@
   letter-spacing: 0px;
   text-align: center;
   vertical-align: middle;
+  margin-top: 8px;
 }
 
 .modal__submit:disabled {
@@ -131,8 +135,31 @@
 
 @media screen and (max-width: 480px) {
   .modal {
-    top: 56px;
     width: 100%;
-    /* Align to top on mobile */
+    height: 100vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 56px;
+  }
+
+  .modal__content {
+    max-width: 100%;
+    min-height: calc(100vh - 56px);
+    border-radius: 16px 16px 0 0;
+    margin-top: 56;
+    padding: 16px 16px 0;
+  }
+  .modal__input {
+    width: 100%;
+  }
+
+  .modal__submit {
+    width: 100%;
+  }
+  .modal__close {
+    width: 24px;
+    height: 24px;
+    top: -40px;
+    right: 16px;
   }
 }
