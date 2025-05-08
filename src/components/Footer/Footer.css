@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0 104px;
+  align-items: center;
 }
 
 .footer__text {
@@ -32,6 +33,7 @@
   text-align: center;
   text-decoration: none;
   color: #1a1b22;
+  align-items: center;
 }
 
 .footer__link {
@@ -50,9 +52,43 @@
 .footer__socials {
   display: flex;
   gap: 24px;
+  align-items: center;
 }
 
 .footer__facebook-icon {
   width: 24px;
   height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 64px;
+    max-width: 768px;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    height: 176px;
+    max-width: 320px;
+    flex-direction: column-reverse;
+    padding: 20px 16px 22px;
+    align-items: center;
+  }
+
+  .footer__links {
+    width: 288px;
+    justify-content: space-between;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  .footer__socials {
+    align-items: flex-start;
+  }
 }

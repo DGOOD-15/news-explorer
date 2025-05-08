@@ -1,5 +1,7 @@
 import "./Navigation.css";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import MobileMenuModal from "../MobileMenuModal/MobileMenuModal";
 
 function Navigation({
   handleSignInClick,
@@ -13,9 +15,15 @@ function Navigation({
     currentPath === "/saved-articles" ||
     currentPath === "/news-explorer/saved-articles";
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <nav className="navigation">
-      <div className="navigation__link-container">
+      <div
+        className={`navigation__link-container ${
+          isMobileMenuOpen ? "navigation__link-container_menu-opened" : ""
+        }`}
+      >
         <Link
           to="/"
           className={`navigation__logo ${
@@ -24,6 +32,13 @@ function Navigation({
         >
           NewsExplorer
         </Link>
+        <button
+          className={`navigation__menu-button ${
+            isMobileMenuOpen ? "navigation__menu-close-btn" : ""
+          } ${isSavedArticlesPage ? "navigation__menu-button-saved" : ""}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        ></button>
+
         <div className="navigation__links">
           <NavLink
             to="/"
@@ -90,6 +105,15 @@ function Navigation({
           )}
         </div>
       </div>
+
+      <MobileMenuModal
+        isOpen={isMobileMenuOpen}
+        isLoggedIn={isLoggedIn}
+        handleSignInClick={handleSignInClick}
+        handleLogout={handleLogout}
+        currentUser={currentUser}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
     </nav>
   );
 }

@@ -1,18 +1,23 @@
 .navigation {
   width: 100%;
   position: relative;
+  border-bottom: 1px solid #d1d2d6;
+  height: 80px;
 }
 
 .navigation__link-container {
   max-width: 1440px;
+  box-sizing: border-box;
   height: 80px;
-  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 104px;
   margin: 0 auto;
-  border-bottom: 1px solid #d1d2d6;
+}
+
+.navigation__link-container_menu-opened {
+  background-color: #1a1b22;
 }
 
 .navigation__links {
@@ -133,4 +138,106 @@
 
 .navigation__sign-out-btn:hover {
   opacity: 0.8;
+}
+
+.navigation__menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background-image: url(../../assets/Images/mobile-menu-icon.png);
+}
+
+.navigation__menu-close-btn {
+  background-image: url(../../assets/Images/modal-close.png);
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+}
+
+.navigation__menu-button-saved {
+  background-image: url("../../assets/Images/mobile-menu-icon-dark.png");
+}
+
+.navigation__link-container_menu-opened .navigation__logo-saved {
+  color: #ffffff;
+}
+
+.navigation__menu-button-saved.navigation__menu-close-btn {
+  background-image: url("../../assets/Images/modal-close.png");
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    height: 66px;
+  }
+  .navigation__link-container {
+    padding: 0 40px;
+    height: 66px;
+  }
+
+  .navigation__links {
+    gap: 16px;
+  }
+
+  .navigation__link-wrapper {
+    height: 66px;
+  }
+
+  .navigation__link-wrapper_active {
+    width: 60px;
+  }
+
+  .navigation__link-wrapper_saved {
+    width: 160px;
+  }
+
+  .navigation__sign-in-btn {
+    height: 40px;
+    width: 152px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation {
+    height: 56px;
+  }
+  .navigation__logo {
+    font-size: 16px;
+  }
+  .navigation__links {
+    display: none;
+  }
+
+  .navigation__menu-button {
+    display: block;
+  }
+
+  .navigation__mobile-menu.active {
+    display: block;
+  }
+
+  .navigation__link-container {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .navigation__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .navigation__sign-in-btn,
+  .navigation__sign-out-btn {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+  }
 }

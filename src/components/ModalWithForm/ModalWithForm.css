@@ -128,3 +128,11 @@
   margin-top: 3px;
   display: block;
 }
+
+@media screen and (max-width: 480px) {
+  .modal {
+    top: 56px;
+    width: 100%;
+    /* Align to top on mobile */
+  }
+}

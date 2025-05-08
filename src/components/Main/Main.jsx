@@ -28,17 +28,21 @@ function Main({
         !noResults &&
         articles &&
         articles.length > 0 && (
-          <NewsCardList
-            articles={articles}
-            visibleCount={visibleCount}
-            setVisibleCount={setVisibleCount}
-            isLoggedIn={isLoggedIn}
-            handleSaveArticle={handleSaveArticle}
-            savedArticles={savedArticles}
-          />
+          <div className="main__news-conatiner">
+            <NewsCardList
+              articles={articles}
+              visibleCount={visibleCount}
+              setVisibleCount={setVisibleCount}
+              isLoggedIn={isLoggedIn}
+              handleSaveArticle={handleSaveArticle}
+              savedArticles={savedArticles}
+            />
+          </div>
         )}
       {noResults && <NotFound />}
-      <About />
+      <div className="main__about">
+        <About />
+      </div>
     </div>
   );
 }
