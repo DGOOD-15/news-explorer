@@ -9,4 +9,4 @@ This is a News explorer web application when users can search News articles base
 - [Figma Design](https://www.figma.com/design/3ottwMEhlBt95Dbn8dw1NH/Your-Final-Project?node-id=0-1&p=f)
 
 - [News Api](https://newsapi.org/)
-- [Deployment link]()
+- [Deployment link](https://dgood-15.github.io/news-explorer/)
