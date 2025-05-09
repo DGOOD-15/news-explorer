@@ -2,8 +2,8 @@ const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
 const baseUrl =
   import.meta.env.MODE === "production"
-    ? "https://nomoreparties.co/news/v2/everything"
-    : "https://newsapi.org/v2/everything";
+    ? "https://nomoreparties.co/news/v2/"
+    : "https://newsapi.org/v2/";
 
 export function fetchNewsArticles(query) {
   const sevenDaysAgo = new Date();
