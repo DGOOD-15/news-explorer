@@ -1,6 +1,4 @@
-import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./SuccessModal.css";
 
 function SuccessModal({ isOpen, onClose, handleLoginLinkClick }) {
   return (
