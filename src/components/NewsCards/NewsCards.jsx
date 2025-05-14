@@ -1,8 +1,7 @@
-import "./NewsCardList.css";
+import "./NewsCards.css";
 import NewsCard from "../NewsCard/NewsCard";
-import { useState } from "react";
 
-function NewsCardList({
+function NewsCards({
   articles,
   visibleCount,
   setVisibleCount,
@@ -15,11 +14,11 @@ function NewsCardList({
   };
 
   return (
-    <div className="newsCardList__container">
-      <h2 className="newsCardList__title">Search results</h2>
-      <ul className="newsCardList__list">
+    <section className="news-cards">
+      <h2 className="news-cards__title">Search results</h2>
+      <ul className="news-cards__list">
         {articles.slice(0, visibleCount).map((article, index) => (
-          <li className="newsCardList__card" key={index}>
+          <li className="news-cards__card" key={article.url}>
             <NewsCard
               isLoggedIn={isLoggedIn}
               image={article.urlToImage}
@@ -38,12 +37,12 @@ function NewsCardList({
         ))}
       </ul>
       {articles.length > visibleCount && (
-        <button className="newsCardList__show-more-btn" onClick={showMore}>
+        <button className="news-cards__show-more-btn" onClick={showMore}>
           Show More
         </button>
       )}
-    </div>
+    </section>
   );
 }
 
-export default NewsCardList;
+export default NewsCards;

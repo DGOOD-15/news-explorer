@@ -12,7 +12,7 @@ function About() {
         />
       </div>
       <div className="about__text-container">
-        <h3 className="about__title">About the Author</h3>
+        <h2 className="about__title">About the Author</h2>
         <p className="about__paragraph">
           My name is Dustin Goodwin. I am a full stack software engineer with
           experience and skills in HTML, CSS3, Javascript, Git, GitHub, Chrome

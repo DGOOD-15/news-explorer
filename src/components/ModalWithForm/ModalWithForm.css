@@ -21,7 +21,7 @@
   position: absolute;
   top: -40px;
   right: -40px;
-  background-image: url(../../assets/Images/modal-close.png);
+  background-image: url(../../assets/Images/modal-close.svg);
   height: 40px;
   width: 40px;
   background-size: cover;
@@ -48,7 +48,7 @@
 .modal__input {
   display: block;
   border: none;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 358px;
   font-family: Inter;
   font-weight: 400;
@@ -57,6 +57,10 @@
   outline: none;
   margin-top: 9px;
   padding: 0 0 10px;
+}
+
+.modal__input:focus {
+  border-bottom: 1px solid #000;
 }
 
 .modal__title {

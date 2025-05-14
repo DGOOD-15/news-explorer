@@ -44,11 +44,11 @@ function NewsCard({
   console.log("Button className:", buttonClassName, "isSaved:", isSaved);
 
   return (
-    <div className="newsCard">
-      <img src={image} alt="" className="newsCard__image" />
+    <article className="newsCard">
+      <img src={image} alt={title} className="newsCard__image" />
       {isSavedArticlesPage && (
         <div className="newsCard__keyword">
-          {keyword.charAt(0).toUpperCase() + keyword.slice(1)}
+          {keyword?.charAt(0).toUpperCase() + keyword?.slice(1)}
         </div>
       )}
       <button
@@ -67,13 +67,13 @@ function NewsCard({
           <span className="newsCard__tooltip">Remove from saved</span>
         )}
       </button>
-      <div className="newsCard__content">
+      <section className="newsCard__content">
         <p className="newsCard__date">{formattedDate}</p>
         <h2 className="newsCard__title">{title}</h2>
         <p className="newsCard__description">{description}</p>
         <p className="newsCard__source">{source}</p>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }
 

@@ -1,6 +1,6 @@
 import "./Footer.css";
-import githubIcon from "../../assets/Images/github-icon.png";
-import facebookIcon from "../../assets/Images/facebook-icon.png";
+import githubIcon from "../../assets/Images/github-icon.svg";
+import facebookIcon from "../../assets/Images/facebook-icon.svg";
 
 function Footer() {
   return (
@@ -8,26 +8,48 @@ function Footer() {
       <p className="footer__text">© 2024 Supersite, Powered by News API</p>
       <div className="footer__links">
         <nav className="footer__nav">
-          <a href="/" className="footer__link">
-            Home
-          </a>
-
-          <a href="https://tripleten.com/" className="footer__link">
-            TripleTen
-          </a>
+          <ul className="footer__nav-list">
+            <li>
+              <a href="/" className="footer__link">
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://tripleten.com/"
+                className="footer__link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                TripleTen
+              </a>
+            </li>
+          </ul>
         </nav>
         <div className="footer__socials">
-          <a href="https://github.com/DGOOD-15/news-explorer" className="">
+          <a
+            href="https://github.com/DGOOD-15/news-explorer"
+            aria-label="Visit GitHub repository"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               src={githubIcon}
-              alt="github logo"
+              alt="GitHub logo"
               className="footer__github-icon"
+              target="_blank"
+              rel="noreferrer"
             />
           </a>
-          <a href="https://www.facebook.com/" className="footer__socials">
+          <a
+            href="https://www.facebook.com/"
+            aria-label="Visit Facebook"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               src={facebookIcon}
-              alt="facebook logo"
+              alt="Facebook logo"
               className="footer__facebook-icon"
             />
           </a>

@@ -6,7 +6,6 @@
 }
 
 .navigation__link-container {
-  max-width: 1440px;
   box-sizing: border-box;
   height: 80px;
   display: flex;
@@ -127,13 +126,13 @@
 .navigation__logout-icon {
   width: 24px;
   height: 24px;
-  background-image: url("../../assets/Images/logout.png");
+  background-image: url("../../assets/Images/logout.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .navigation__logout-icon-saved {
-  background-image: url("../../assets/Images/logout-saved.png");
+  background-image: url("../../assets/Images/logout-saved.svg");
 }
 
 .navigation__sign-out-btn:hover {
@@ -149,18 +148,18 @@
   width: 24px;
   height: 24px;
   position: relative;
-  background-image: url(../../assets/Images/mobile-menu-icon.png);
+  background-image: url(../../assets/Images/mobile-menu-icon.svg);
 }
 
 .navigation__menu-close-btn {
-  background-image: url(../../assets/Images/modal-close.png);
+  background-image: url(../../assets/Images/modal-close.svg);
   width: 24px;
   height: 24px;
   background-size: contain;
 }
 
 .navigation__menu-button-saved {
-  background-image: url("../../assets/Images/mobile-menu-icon-dark.png");
+  background-image: url("../../assets/Images/mobile-menu-icon-dark.svg");
 }
 
 .navigation__link-container_menu-opened .navigation__logo-saved {
@@ -175,7 +174,13 @@
   display: none !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
+  .navigation__link-container {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 850px) {
   .navigation {
     height: 66px;
   }
@@ -207,7 +212,19 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
+  .navigation__link-container {
+    padding: 0 20px;
+  }
+  .navigation__links {
+    gap: 8px;
+  }
+  .navigation__link-wrapper_saved {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 550px) {
   .navigation {
     height: 56px;
   }

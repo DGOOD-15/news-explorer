@@ -9,7 +9,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import { fetchNewsArticles } from "../../utils/NewsApi";
 import { authorize, checkToken } from "../../utils/auth";
-import SavedNews from "../SavedArticles/SavedNews";
+import SavedNews from "../SavedNews/SavedNews";
 import SuccessModal from "../SucessModal/SuccessModal";
 import ProtectedRoute from "../ProtectedRoute";
 import Navigation from "../Navigation/Navigation";

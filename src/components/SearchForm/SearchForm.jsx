@@ -17,8 +17,8 @@ function SearchForm({ onSearchResults }) {
   };
 
   return (
-    <section className="searchform__container">
-      <form className="searchform" onSubmit={handleSubmit}>
+    <form className="searchform" onSubmit={handleSubmit}>
+      <section className="searchform__container">
         <input
           type="text"
           className="searchform__input"
@@ -29,9 +29,9 @@ function SearchForm({ onSearchResults }) {
         <button type="submit" className="searchform__btn">
           Search
         </button>
-      </form>
+      </section>
       {error && <p className="searchform__error">{error}</p>}
-    </section>
+    </form>
   );
 }
 export default SearchForm;

@@ -3,9 +3,7 @@ import NewsCard from "../NewsCard/NewsCard";
 
 function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
   function getUniqueKeywords(articles) {
-    // Extract all keywords from articles
     const allKeywords = articles.map((article) => article.keyword);
-    // Remove duplicates and filter out any undefined/null values
     const uniqueKeywords = [...new Set(allKeywords)].filter(
       (keyword) => keyword
     );
@@ -13,13 +11,13 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
   }
 
   return (
-    <div className="savedNews">
+    <section className="savedNews">
       <header className="savedNews__header">
         <h1 className="savedNews__title">Saved articles</h1>
         <p className="savedNews__user-info">
           {currentUser.name}, you have {savedArticles.length} saved articles
         </p>
-        <p className="savedNews__keywords">
+        <div className="savedNews__keywords">
           <span className="savedNews__keywords-label">By keywords: </span>
           <span className="savedNews__keywords-values">
             {(() => {
@@ -38,17 +36,14 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
                 : firstTwo.join(", ");
             })()}
           </span>
-        </p>
+        </div>
       </header>
       <div className="savedNews__container">
         <div className="savedNews__content">
           {savedArticles.length > 0 ? (
             <ul className="savedNews__list">
-              {savedArticles.map((article, index) => (
-                <li
-                  className="savedNews__article"
-                  key={`${article.title}-${index}`}
-                >
+              {savedArticles.map((article) => (
+                <li className="savedNews__article" key={article.url}>
                   <NewsCard
                     image={article.urlToImage}
                     date={article.publishedAt}
@@ -65,15 +60,13 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
               ))}
             </ul>
           ) : (
-            <div className="saved-news__empty">
-              <p className="saved-news__empty-message">
-                You don't have any saved articles yet.
-              </p>
-            </div>
+            <p className="saved-news__empty-message">
+              You don't have any saved articles yet.
+            </p>
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

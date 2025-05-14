@@ -19,13 +19,13 @@ function Header({
         currentUser={currentUser}
         isModalOpen={isModalOpen}
       />
-      <div className="header__text-container">
+      <section className="header__text-container">
         <h1 className="header__title">What's going on in the world?</h1>
         <h2 className="header__subtitle">
           Find the latest news on any topic and save them in your personal
           account.
         </h2>
-      </div>
+      </section>
       <SearchForm onSearchResults={onSearchResults} />
     </header>
   );
