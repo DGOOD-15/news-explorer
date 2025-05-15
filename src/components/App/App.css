@@ -15,4 +15,21 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: clip;
+}
+
+.navigation__logo,
+.navigation__link-wrapper,
+.navigation__sign-in-btn,
+.navigation__sign-out-btn,
+.searchform__btn,
+.footer__link,
+.footer__github-icon,
+.footer__facebook-icon,
+.modal__submit,
+.modal__button-secondary,
+.newsCard__delete-btn,
+.newsCard__save-btn,
+.newsCard:hover {
+  cursor: url("../../assets/Images/cursor.svg"), pointer !important;
 }

@@ -55,12 +55,17 @@
 @media screen and (max-width: 480px) {
   .about {
     flex-direction: column;
+    padding: 0;
+  }
+
+  .about__author-image-container {
+    max-width: 272px;
   }
 
   .about__author-image {
     width: 272px;
     height: 272px;
-    margin: 32px 24px;
+    margin: 32px0;
   }
 
   .about__text-container {

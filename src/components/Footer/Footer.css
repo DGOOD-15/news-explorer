@@ -41,6 +41,11 @@
   text-decoration: none;
   color: #1a1b22;
   align-items: center;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
 }
 
 .footer__link:visited {
@@ -69,6 +74,15 @@
     height: 64px;
     max-width: 768px;
     padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .footer__nav-list {
+    gap: 20px;
+  }
+  .footer__socials {
+    margin-left: 20px;
   }
 }
 

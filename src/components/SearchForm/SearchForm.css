@@ -74,9 +74,11 @@
 @media screen and (max-width: 480px) {
   .searchform {
     max-width: 288px;
+    padding: 0;
   }
   .searchform__btn {
     top: 72px;
+    right: 0;
     width: 288px;
   }
 }

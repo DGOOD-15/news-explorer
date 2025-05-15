@@ -11,8 +11,8 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
   }
 
   return (
-    <section className="savedNews">
-      <header className="savedNews__header">
+    <main className="savedNews">
+      <section className="savedNews__text">
         <h1 className="savedNews__title">Saved articles</h1>
         <p className="savedNews__user-info">
           {currentUser.name}, you have {savedArticles.length} saved articles
@@ -37,7 +37,7 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
             })()}
           </span>
         </div>
-      </header>
+      </section>
       <div className="savedNews__container">
         <div className="savedNews__content">
           {savedArticles.length > 0 ? (
@@ -66,7 +66,7 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
           )}
         </div>
       </div>
-    </section>
+    </main>
   );
 }
 
