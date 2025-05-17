@@ -38,9 +38,9 @@ function NewsCard({
     handleSaveArticle(articleToSave);
   };
 
-  const handleTouchStart = (e) => {
-    handleSaveClick();
-  };
+  // const handleTouchStart = (e) => {
+  //   handleSaveClick();
+  // };
 
   const buttonClassName = isSavedArticlesPage
     ? "newsCard__delete-btn"
@@ -63,7 +63,6 @@ function NewsCard({
             : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`
         }
         onClick={handleSaveClick}
-        onTouchStart={handleTouchStart}
       >
         {!isLoggedIn && !isSavedArticlesPage && (
           <span className="newsCard__tooltip">Sign in to save articles</span>
