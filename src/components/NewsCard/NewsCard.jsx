@@ -38,6 +38,11 @@ function NewsCard({
     handleSaveArticle(articleToSave);
   };
 
+  const handleTouchStart = (e) => {
+    e.preventDefault(); // prevents the hover delay on iOS
+    handleSaveClick();
+  };
+
   const buttonClassName = isSavedArticlesPage
     ? "newsCard__delete-btn"
     : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`;
@@ -59,7 +64,7 @@ function NewsCard({
             : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`
         }
         onClick={handleSaveClick}
-        onTouchStart={handleSaveClick}
+        onTouchStart={handleTouchStart}
       >
         {!isLoggedIn && !isSavedArticlesPage && (
           <span className="newsCard__tooltip">Sign in to save articles</span>

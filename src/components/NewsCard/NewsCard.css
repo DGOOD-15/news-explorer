@@ -30,6 +30,7 @@
   background-image: url(../../assets/Images/news-card-save-btn.svg);
   background-repeat: no-repeat;
   background-position: center;
+  touch-action: manipulation;
 }
 
 .newsCard__save-btn:hover {
@@ -228,5 +229,10 @@
   .newsCard__keyword {
     top: 16px;
     left: 16px;
+  }
+}
+@media (hover: none) {
+  .newsCard__save-btn:hover {
+    background-image: url(../../assets/Images/news-card-save-btn.svg) !important;
   }
 }
