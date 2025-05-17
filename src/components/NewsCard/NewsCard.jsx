@@ -39,7 +39,6 @@ function NewsCard({
   };
 
   const handleTouchStart = (e) => {
-    e.preventDefault(); // prevents the hover delay on iOS
     handleSaveClick();
   };
 
