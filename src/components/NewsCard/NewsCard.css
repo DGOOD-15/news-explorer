@@ -207,6 +207,8 @@
   .newsCard__save-btn {
     top: 16px;
     right: 16px;
+    width: 48px;
+    height: 48px;
   }
   .newsCard__delete-btn {
     top: 16px;
