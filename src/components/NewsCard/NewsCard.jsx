@@ -59,6 +59,7 @@ function NewsCard({
             : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`
         }
         onClick={handleSaveClick}
+        onTouchStart={handleSaveClick}
       >
         {!isLoggedIn && !isSavedArticlesPage && (
           <span className="newsCard__tooltip">Sign in to save articles</span>
