@@ -1,11 +1,28 @@
 .newsCard {
   max-width: 400px;
   height: 576px;
-
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
   background-color: #ffffff;
   border-radius: 16px;
   position: relative;
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.newsCard__link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  pointer-events: auto;
+  display: block; /* or whatever you use */
+  position: relative;
+  z-index: 1;
+}
+
+.newsCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .newsCard__image {
@@ -16,6 +33,14 @@
   max-height: 272px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+.newsCard__button-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2; /* Must be higher than link */
+  pointer-events: none; /* So only button inside can receive clicks */
 }
 
 .newsCard__save-btn {
@@ -30,6 +55,8 @@
   background-image: url(../../assets/Images/news-card-save-btn.svg);
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 10; /* higher than the link */
+  pointer-events: auto;
 }
 
 .newsCard__save-btn:hover {
@@ -52,6 +79,8 @@
   border: none;
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 10; /* higher than the link */
+  pointer-events: auto;
 }
 
 .newsCard__delete-btn:hover {
@@ -133,6 +162,8 @@
   top: 0;
   display: none;
   text-wrap: nowrap;
+  pointer-events: none;
+  z-index: 5;
 }
 
 .newsCard__save-btn:hover .newsCard__tooltip,
@@ -205,6 +236,8 @@
   .newsCard__save-btn {
     top: 16px;
     right: 16px;
+    width: 48px;
+    height: 48px;
   }
   .newsCard__delete-btn {
     top: 16px;

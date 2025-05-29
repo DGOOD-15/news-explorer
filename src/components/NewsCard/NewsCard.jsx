@@ -1,39 +1,49 @@
 import "./NewsCard.css";
 import { formatDate } from "../../utils/helpers.js";
 import { useLocation } from "react-router-dom";
+import placeholderImage from "../../assets/Images/placeholder.jpg";
 
 function NewsCard({
   isLoggedIn,
-  isSaved,
   image,
   date,
   title,
   description,
   source,
   handleSaveArticle,
+  savedArticles, // <-- Make sure to pass this prop from parent
   keyword,
   url,
 }) {
   const location = useLocation();
-  const currentPath = location.pathname;
-  const isSavedArticlesPage =
-    currentPath === "/saved-articles" ||
-    currentPath === "/news-explorer/saved-articles";
-
+  const isSavedArticlesPage = location.pathname.includes("saved-articles");
   const formattedDate = formatDate(date);
 
+  // Check if this article is saved based on savedArticles prop
+  const isSaved = savedArticles?.some(
+    (savedArticle) => savedArticle.url === url
+  );
+
   const handleSaveClick = (e) => {
-    e.stopPropagation();
+    e.stopPropagation(); // prevent the article click from firing
+
     if (!isLoggedIn) return;
 
+    if (isSavedArticlesPage) {
+      // For saved articles page, you may want to trigger delete or unsave here
+      // handleDeleteArticle(url);
+      // Or handleSaveArticle could also toggle save status — depends on your logic
+      return;
+    }
+
     const articleToSave = {
-      title: title,
-      description: description,
-      url: url,
-      urlToImage: image,
+      title,
+      description,
+      url,
+      urlToImage: image || placeholderImage,
       publishedAt: date,
       source: { name: source },
-      keyword: keyword,
+      keyword,
     };
 
     handleSaveArticle(articleToSave);
@@ -45,17 +55,27 @@ function NewsCard({
 
   return (
     <article className="newsCard" onClick={() => window.open(url, "_blank")}>
-      <img src={image} alt={title} className="newsCard__image" />
-      {isSavedArticlesPage && (
+      <img
+        src={image || placeholderImage}
+        alt={title}
+        className="newsCard__image"
+      />
+      {isSavedArticlesPage && keyword && (
         <div className="newsCard__keyword">
-          {keyword?.charAt(0).toUpperCase() + keyword?.slice(1)}
+          {keyword.charAt(0).toUpperCase() + keyword.slice(1)}
         </div>
       )}
       <button
-        key={isSaved ? "saved" : "unsaved"}
         type="button"
         className={buttonClassName}
         onClick={handleSaveClick}
+        aria-label={
+          isSavedArticlesPage
+            ? "Remove from saved"
+            : isSaved
+            ? "Unsave article"
+            : "Save article"
+        }
       >
         {!isLoggedIn && !isSavedArticlesPage && (
           <span className="newsCard__tooltip">Sign in to save articles</span>

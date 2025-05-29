@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { Link } from "react-router-dom";
 import githubIcon from "../../assets/Images/github-icon.svg";
 import facebookIcon from "../../assets/Images/facebook-icon.svg";
 
@@ -10,7 +11,7 @@ function Footer() {
         <nav className="footer__nav">
           <ul className="footer__nav-list">
             <li>
-              <a href="/" className="footer__link">
+              <a href="/news-explorer/" className="footer__link">
                 Home
               </a>
             </li>
