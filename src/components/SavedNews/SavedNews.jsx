@@ -54,7 +54,7 @@ function SavedNews({ currentUser, savedArticles, handleSaveArticle }) {
                     keyword={article.keyword}
                     isLoggedIn={true}
                     isSaved={true}
-                    handleSaveArticle={() => handleSaveArticle(article)}
+                    handleSaveArticle={handleSaveArticle}
                   />
                 </li>
               ))}

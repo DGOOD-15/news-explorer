@@ -17,7 +17,10 @@ import Navigation from "../Navigation/Navigation";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [articles, setArticles] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([]);
+  const [savedArticles, setSavedArticles] = useState(() => {
+    const stored = localStorage.getItem("savedArticles");
+    return stored ? JSON.parse(stored) : [];
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(3);
   const [noResults, setNoResults] = useState(false);
@@ -159,23 +162,23 @@ function App() {
   }, [isSavedArticlesPage]);
 
   const handleSaveArticle = (article) => {
-    const currentSavedArticles =
-      JSON.parse(localStorage.getItem("savedArticles")) || [];
+    const existing = savedArticles.find((a) => a.url === article.url);
 
-    const isArticleSaved = currentSavedArticles.some(
-      (savedArticle) => savedArticle.url === article.url
-    );
-
-    if (isArticleSaved) {
-      const filteredArticles = currentSavedArticles.filter(
-        (savedArticle) => savedArticle.url !== article.url
-      );
-      localStorage.setItem("savedArticles", JSON.stringify(filteredArticles));
-      setSavedArticles(filteredArticles);
+    if (existing) {
+      // UNSAVE
+      const updated = savedArticles.filter((a) => a.url !== article.url);
+      setSavedArticles(updated);
+      localStorage.setItem("savedArticles", JSON.stringify(updated));
     } else {
-      const updatedArticles = [...currentSavedArticles, article];
-      localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
-      setSavedArticles(updatedArticles);
+      // SAVE
+      const newArticle = {
+        ...article,
+        id: Date.now(), // or use uuid if needed
+      };
+
+      const updated = [...savedArticles, newArticle]; // ✅ NEW ARRAY
+      setSavedArticles(updated);
+      localStorage.setItem("savedArticles", JSON.stringify(updated));
     }
   };
 
