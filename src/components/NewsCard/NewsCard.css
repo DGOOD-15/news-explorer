@@ -37,7 +37,7 @@
 }
 
 .newsCard__save-btn-saved {
-  background-image: url(../../assets/Images/news-card-save-btn-saved.svg);
+  background-image: url(../../assets/Images/news-card-save-btn-saved.svg) !important;
 }
 
 .newsCard__delete-btn {
@@ -227,5 +227,19 @@
   .newsCard__keyword {
     top: 16px;
     left: 16px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .newsCard__save-btn:hover {
+    background-image: url(../../assets/Images/news-card-save-btn.svg) !important;
+  }
+
+  .newsCard__delete-btn:hover {
+    background-image: url(../../assets/Images/news-card-delete-btn.svg) !important;
+  }
+
+  .newsCard__tooltip {
+    display: none !important;
   }
 }

@@ -22,7 +22,8 @@ function NewsCard({
 
   const formattedDate = formatDate(date);
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (e) => {
+    e.stopPropagation();
     if (!isLoggedIn) return;
 
     const articleToSave = {
@@ -41,10 +42,9 @@ function NewsCard({
   const buttonClassName = isSavedArticlesPage
     ? "newsCard__delete-btn"
     : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`;
-  console.log("Button className:", buttonClassName, "isSaved:", isSaved);
 
   return (
-    <article className="newsCard">
+    <article className="newsCard" onClick={() => window.open(url, "_blank")}>
       <img src={image} alt={title} className="newsCard__image" />
       {isSavedArticlesPage && (
         <div className="newsCard__keyword">
@@ -52,12 +52,9 @@ function NewsCard({
         </div>
       )}
       <button
+        key={isSaved ? "saved" : "unsaved"}
         type="button"
-        className={
-          isSavedArticlesPage
-            ? "newsCard__delete-btn"
-            : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`
-        }
+        className={buttonClassName}
         onClick={handleSaveClick}
       >
         {!isLoggedIn && !isSavedArticlesPage && (
