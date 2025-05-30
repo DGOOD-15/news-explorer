@@ -4,7 +4,7 @@ import "./Main.css";
 import Preloader from "../Preloader/Predloader";
 import NotFound from "../NotFound/NotFound";
 import About from "../About/About";
-import NewsCardList from "../NewsCards/NewsCards";
+import NewsCards from "../NewsCards/NewsCards";
 
 function Main({
   articles,
@@ -16,6 +16,7 @@ function Main({
   isLoggedIn,
   handleSaveArticle,
   savedArticles,
+  isSaved,
 }) {
   return (
     <main className="main">
@@ -29,7 +30,7 @@ function Main({
         articles &&
         articles.length > 0 && (
           <section className="main__news-conatiner">
-            <NewsCardList
+            <NewsCards
               articles={articles}
               visibleCount={visibleCount}
               setVisibleCount={setVisibleCount}

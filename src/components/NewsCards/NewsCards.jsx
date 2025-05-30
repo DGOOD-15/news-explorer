@@ -9,6 +9,7 @@ function NewsCards({
   isLoggedIn,
   handleSaveArticle,
   savedArticles,
+  isSaved,
 }) {
   const showMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);
@@ -20,21 +21,19 @@ function NewsCards({
       <ul className="news-cards__list">
         {articles.slice(0, visibleCount).map((article) => (
           <li className="news-cards__card" key={article.url}>
-            {articles.map((article) => (
-              <NewsCard
-                key={article.url + savedArticles.length}
-                isLoggedIn={isLoggedIn}
-                image={article.urlToImage}
-                date={article.publishedAt}
-                title={article.title}
-                description={article.description}
-                source={article.source.name}
-                url={article.url}
-                keyword={article.keyword}
-                handleSaveArticle={handleSaveArticle}
-                savedArticles={savedArticles} // ✅ pass the full list
-              />
-            ))}
+            <NewsCard
+              isLoggedIn={isLoggedIn}
+              image={article.urlToImage}
+              date={article.publishedAt}
+              title={article.title}
+              description={article.description}
+              source={article.source.name}
+              url={article.url}
+              keyword={article.keyword}
+              handleSaveArticle={handleSaveArticle}
+              savedArticles={savedArticles}
+              isSaved={isSaved}
+            />
           </li>
         ))}
       </ul>

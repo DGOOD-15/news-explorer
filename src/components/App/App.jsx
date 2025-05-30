@@ -147,12 +147,6 @@ function App() {
   };
 
   useEffect(() => {
-    const savedArticles =
-      JSON.parse(localStorage.getItem("savedArticles")) || [];
-    setSavedArticles(savedArticles);
-  }, []);
-
-  useEffect(() => {
     if (isSavedArticlesPage) {
       setArticles([]);
       setNoResults(false);
@@ -165,22 +159,20 @@ function App() {
     const existing = savedArticles.find((a) => a.url === article.url);
 
     if (existing) {
-      // UNSAVE
       const updated = savedArticles.filter((a) => a.url !== article.url);
       setSavedArticles(updated);
-      localStorage.setItem("savedArticles", JSON.stringify(updated));
     } else {
-      // SAVE
       const newArticle = {
         ...article,
-        id: Date.now(), // or use uuid if needed
+        id: Date.now(),
       };
-
-      const updated = [...savedArticles, newArticle]; // ✅ NEW ARRAY
-      setSavedArticles(updated);
-      localStorage.setItem("savedArticles", JSON.stringify(updated));
+      setSavedArticles([...savedArticles, newArticle]);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+  }, [savedArticles]);
 
   return (
     <div className="app">

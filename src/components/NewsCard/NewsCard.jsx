@@ -11,7 +11,7 @@ function NewsCard({
   description,
   source,
   handleSaveArticle,
-  savedArticles, // <-- Make sure to pass this prop from parent
+  savedArticles,
   keyword,
   url,
 }) {
@@ -20,21 +20,17 @@ function NewsCard({
   const formattedDate = formatDate(date);
 
   // Check if this article is saved based on savedArticles prop
+  const normalizeUrl = (url) => url?.trim().toLowerCase();
+
   const isSaved = savedArticles?.some(
-    (savedArticle) => savedArticle.url === url
+    (savedArticle) => normalizeUrl(savedArticle.url) === normalizeUrl(url)
   );
 
   const handleSaveClick = (e) => {
-    e.stopPropagation(); // prevent the article click from firing
+    e.stopPropagation();
+    e.currentTarget.blur(); // Fixes mobile focus bug
 
-    if (!isLoggedIn) return;
-
-    if (isSavedArticlesPage) {
-      // For saved articles page, you may want to trigger delete or unsave here
-      // handleDeleteArticle(url);
-      // Or handleSaveArticle could also toggle save status — depends on your logic
-      return;
-    }
+    if (!isLoggedIn) return; // ✅ Only block if not logged in
 
     const articleToSave = {
       title,
@@ -54,7 +50,15 @@ function NewsCard({
     : `newsCard__save-btn ${isSaved ? "newsCard__save-btn-saved" : ""}`;
 
   return (
-    <article className="newsCard" onClick={() => window.open(url, "_blank")}>
+    <article
+      className="newsCard"
+      tabIndex="-1"
+      onClick={(e) => {
+        // Prevent open if clicking a button inside the card
+        if (e.target.closest("button")) return;
+        window.open(url, "_blank");
+      }}
+    >
       <img
         src={image || placeholderImage}
         alt={title}

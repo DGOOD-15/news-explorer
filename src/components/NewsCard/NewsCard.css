@@ -59,6 +59,11 @@
   pointer-events: auto;
 }
 
+.newsCard__save-btn:hover > .newsCard__tooltip,
+.newsCard__delete-btn:hover > .newsCard__tooltip {
+  display: block;
+}
+
 .newsCard__save-btn:hover {
   background-image: url(../../assets/Images/news-card-save-btn-hover.svg);
 }
@@ -151,7 +156,6 @@
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.24);
-  border-radius: 10px;
   font-family: Roboto, Arial, sans-serif;
   font-weight: 500;
   font-size: 12px;
@@ -161,14 +165,9 @@
   right: 45px;
   top: 0;
   display: none;
-  text-wrap: nowrap;
+  white-space: nowrap;
   pointer-events: none;
   z-index: 5;
-}
-
-.newsCard__save-btn:hover .newsCard__tooltip,
-.newsCard__delete-btn:hover .newsCard__tooltip {
-  display: block;
 }
 
 .newsCard__keyword {
@@ -274,5 +273,10 @@
 
   .newsCard__tooltip {
     display: none !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .newsCard:hover {
   }
 }
